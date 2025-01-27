@@ -18,13 +18,13 @@ class Model:
                'cpu'
 
 
-    def save(self, res_path):
-        torch.save(self, res_path + self.MODEL_FILE_NAME)
+    def save(self, path):
+        torch.save(self, path + self.MODEL_FILE_NAME)
 
 
     @staticmethod
-    def load(res_path):
-        return torch.load(res_path + Model.MODEL_FILE_NAME,
+    def load(path):
+        return torch.load(path + Model.MODEL_FILE_NAME,
                           map_location=Model.get_device(),
                           weights_only=False)
 
