@@ -3,7 +3,7 @@ from torch import nn
 
 class NeuralNetwork(nn.Module):
 
-    EMBEDDING_SIZE = 50
+    EMBEDDING_SIZE = 200
 
     def __init__(self, vocab_size, encoding_size, output_size):
         super().__init__()
