@@ -1,17 +1,16 @@
 from torch import nn
 
 
-class NeuralNetwork(nn.Module):
-
-    EMBEDDING_SIZE = 200
+class FNN(nn.Module):
 
     def __init__(self, vocab_size, encoding_size, output_size):
         super().__init__()
 
-        self.embedding = nn.Embedding(vocab_size, self.EMBEDDING_SIZE)
+        embedding_size = int(vocab_size ** (1/2))
+        self.embedding = nn.Embedding(vocab_size, embedding_size)
         self.flatten = nn.Flatten()
         self.stack = nn.Sequential(
-            nn.Linear(encoding_size * self.EMBEDDING_SIZE, output_size),
+            nn.Linear(encoding_size * embedding_size, output_size),
         )
 
 
